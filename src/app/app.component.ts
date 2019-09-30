@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ITodo } from './interfaces/itodo';
 
 @Component({
   selector: 'app-root',
@@ -7,27 +8,34 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Todos';
-  todoList: any [] = [];
+  todoList: ITodo [] = [];
   todoTitle: string;
+  todoId: number;
 
 
 ngOnInit() {
-  this.todoTitle = '';
+  this.todoTitle = '';  
+  this.todoId= 1;
   this.todoList = [
     // example of how to make an item in todo list
-    { title: 'Install Angular CLI', isDone: false },
-
+    {id: 1, isDoing: false, isEditing:false, title: 'Install Angular CLI', isDone: false },
+    
   ];
   
 }
 addTodo():void {
+  this.todoId ++;
   this.todoList.push({
+    id: this.todoId,
     title: this.todoTitle,
-    isDone: false
+    isDone: false,
+    isDoing: false,
+    isEditing: false,
   });
 
   
   this.todoTitle = '';
+  this.todoId++;
 }
 deleteTodo(todo:any) {
   const index = this.todoList.findIndex(todoItem => todoItem === todo);
