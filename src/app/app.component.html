@@ -1,11 +1,4 @@
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * Delete the template below * * * * * * * * * * -->
-<!-- * * * * * * * to get started with your project! * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
 
 <h1 align="center">Todo List</h1>
 <ul align="center" class="list-group">
@@ -13,13 +6,15 @@
       <div class="view">
         <label>{{this.todo.title}}</label>
         <div class="float-right">
-          <button type="button" class="btn btn-danger btn-sm">Delete</button>
+            <confirmation-modal [todo]='todo'></confirmation-modal>
+         <!--<button type="button" class="btn btn-danger btn-sm">Delete</button>--> 
+          
         </div>
       </div>
     </li>
   </ul>
 
-  <button type="button" (click)= deleteTodo(todo) class="btn btn-danger btn-sm">Delete</button>
+  <button type="button" class="btn btn-danger btn-sm" (click)= deleteTodo(todo) >Delete</button>
   <input type="text" class="todo-input" placeholder="Add next todo here" [(ngModel)]="todoTitle" (keyup.enter)=addTodo()>
 
 

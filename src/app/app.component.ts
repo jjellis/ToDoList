@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ITodo } from './interfaces/itodo';
+import { TodoService } from './services/todo.service';
 
 @Component({
   selector: 'app-root',
@@ -7,31 +9,49 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Todos';
-  todoList: any [] = [];
+  todoList: ITodo [] = [];
   todoTitle: string;
+  todoId: number;
+
+  constructor( private todoService: TodoService) {}
 
 
 ngOnInit() {
-  this.todoTitle = '';
-  this.todoList = [
-    // example of how to make an item in todo list
-    { title: 'Install Angular CLI', isDone: false },
-
-  ];
+  this.todoTitle = '';  
+  this.todoId= 1;
+  this.todoList = this.todoService.todoList;
+  this.todoList.push({
+   
+    id: this.todoId, 
+    isDoing: false,
+     isEditing:false, 
+     title: 'Install Angular CLI', 
+     isDone: false 
+     //dateAdded: new Date()    
+    });
+  
+  
   
 }
 addTodo():void {
-  this.todoList.push({
+  this.todoId ++;
+  const todo =({  
+    id: this.todoId,
     title: this.todoTitle,
-    isDone: false
+    isDone: false,
+    isDoing: false,
+    isEditing: false,
+    //dateAdded:new Date()
   });
-
-  
-  this.todoTitle = '';
+  this.todoService.add(todo);
+  this.todoTitle = '';  
 }
-deleteTodo(todo:any) {
-  const index = this.todoList.findIndex(todoItem => todoItem === todo);
-  this.todoList.splice(index, 1);
+toggleDone(todo: ITodo){
+  todo.isDone = !todo.isDone;
+}
+
+deleteTodo(todo:ITodo) {
+  this.todoService.delete(todo);``
 }
 
 }
