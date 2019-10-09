@@ -6,17 +6,26 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { ConfirmationModalComponent } from './confirmation-modal/confirmation-modal.component';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { MatTableModule } from '@angular/material';
+import { TOdoGridComponent } from './todo-grid/todo-grid.component';
+import { TodoComponentComponent, TodoComponent } from './todo/todo.component'
 
 @NgModule({
   declarations: [
     AppComponent,
-    ConfirmationModalComponent
+    ConfirmationModalComponent,
+    TOdoGridComponent,
+    TodoComponentComponent,
+    TodoComponent
   ],
   imports: [
     NgbModule,
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    NoopAnimationsModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
