@@ -9,15 +9,14 @@ import { ConfirmationModalComponent } from './confirmation-modal/confirmation-mo
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTableModule } from '@angular/material';
 import { TOdoGridComponent } from './todo-grid/todo-grid.component';
-import { TodoComponentComponent, TodoComponent } from './todo/todo.component'
+
 
 @NgModule({
   declarations: [
     AppComponent,
     ConfirmationModalComponent,
-    TOdoGridComponent,
-    TodoComponentComponent,
-    TodoComponent
+    TOdoGridComponent
+   
   ],
   imports: [
     NgbModule,
