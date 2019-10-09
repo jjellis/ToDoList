@@ -4,7 +4,7 @@ export interface ITodo {
     isDone: boolean;
     isDoing: boolean;
     isEditing: boolean;
-    //dateAdded: Date;
+    dateAdded: Date;
   }
  
   
