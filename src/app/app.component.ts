@@ -28,8 +28,8 @@ ngOnInit() {
     isDoing: false,
      isEditing:false, 
      title: 'Install Angular CLI', 
-     isDone: false 
-     //dateAdded: new Date()    
+     isDone: false, 
+     dateAdded: new Date()    
     });
   
   
@@ -43,7 +43,7 @@ addTodo():void {
     isDone: false,
     isDoing: false,
     isEditing: false,
-    //dateAdded:new Date()
+    dateAdded:new Date()
   });
   this.todoService.add(todo);
   this.todoTitle = '';  
