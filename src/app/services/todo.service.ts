@@ -9,12 +9,16 @@ export class TodoService {
 
   constructor() { }
 
- // getTodoItems(){
-  //  return this.todoList;
-  //}
+  getTodoItems(){
+    return this.todoList;
+  }
 
   add(todo: ITodo){
     this.todoList.push(todo);
+  }
+
+  getAll(): ITodo[] {
+   return this.todoList;
   }
 
   delete(todo: ITodo){
